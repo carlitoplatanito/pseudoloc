@@ -12,6 +12,7 @@
     "url": "git://github.com/TimeToKnow/pseudoloc.git"
   },
   "main": "index.js",
+  "bin": "./bin/pseudoloc",
   "browserify": "index-browserify.js",
   "jam": {
     "main": "psuedoloc.js",
