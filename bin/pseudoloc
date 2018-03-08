@@ -81,9 +81,7 @@ else {
     }
 
     var result = JSON.parse(data);
-    for(var id in result) {
-      result[id] = pseudoloc.str(result[id]);
-    }
+    pseudoRecurse(result);
 
     var dir = path.dirname(program.readFile),
         ext = path.extname(program.readFile),
@@ -98,4 +96,14 @@ else {
 
     });
   });
+}
+
+function pseudoRecurse(object) {
+	for (var id in object) {
+		if (typeof object[id] === 'object') {
+			pseudoRecurse(object[id]);
+		} else {
+			object[id] = pseudoloc.str(object[id]);
+		}
+	}
 }
